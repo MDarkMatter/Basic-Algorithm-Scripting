@@ -4,12 +4,12 @@
 
 
 function reverseString(str) {
-  var array = [];
+    var array = [];
 
-  array = str.split('');
-  array.reverse();
-  array = array.join('');
-  return array;
+    array = str.split('');
+    array.reverse();
+    array = array.join('');
+    return array;
 }
 
 reverseString("hello");
@@ -23,23 +23,23 @@ reverseString("hello");
 // For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
 
 function factorialize(num) {
-  var multiply = [];
-  var factorial = 0;
+    var multiply = [];
+    var factorial = 0;
 
 
-  if (num > 0) {
-    for (var i = 1; i <= num; i++) {
-      multiply.push(i);
+    if (num > 0) {
+        for (var i = 1; i <= num; i++) {
+            multiply.push(i);
+        }
+
+        factorial = multiply.reduce(function(a, b) {
+            return a * b;
+        });
+
+        return factorial;
+    } else {
+        return 1;
     }
-
-    factorial = multiply.reduce(function(a, b) {
-      return a * b;
-    });
-
-    return factorial;
-  } else {
-    return 1;
-  }
 }
 
 factorialize(5);
@@ -61,29 +61,42 @@ factorialize(5);
 
 function palindrome(str) {
 
-   var forwards = [];
-   var backwards = [];
-   var strfor;
-   var strback;
-   var newstr = str.replace(/\s/g, '');
-   var nonalph = newstr.replace(/[\W_]+/g, '');
-   var lower = nonalph.toLowerCase();
+    var forwards = [];
+    var backwards = [];
+    var strfor;
+    var strback;
+    var newstr = str.replace(/\s/g, '');
+    var nonalph = newstr.replace(/[\W_]+/g, '');
+    var lower = nonalph.toLowerCase();
 
-   for (i = 0; i < lower.length; i++) {
-      forwards.push(lower[i]);
-   }
+    for (i = 0; i < lower.length; i++) {
+        forwards.push(lower[i]);
+    }
 
-   for (j = (lower.length - 1); j >= 0; j--) {
-      backwards.push(lower[j]);
-   }
+    for (j = (lower.length - 1); j >= 0; j--) {
+        backwards.push(lower[j]);
+    }
 
-   strfor = forwards.join('');
-   strback =backwards.join('');
+    strfor = forwards.join('');
+    strback = backwards.join('');
 
-   if (strfor === strback) {
-      return true;
-   } else {
-      return false;
-   }
+    if (strfor === strback) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
+//--------------Problem 4
+// Find the Longest Word in a String
+// Return the length of the longest word in the provided sentence.
+// Your response should be a number.
+
+function findLongestWord(str) {
+    var pushArray = [];
+    var turnIntoArray = str.split(' ');
+    for (var i = 0; i < turnIntoArray.length; i++) {
+        pushArray.push(turnIntoArray[i].length);
+    }
+    return Math.max.apply(null, pushArray);
 }
