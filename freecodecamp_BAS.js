@@ -151,5 +151,18 @@ function confirmEnding(str, target) {
   } else {
    return false;
   }
-  
+
+}
+
+
+//---------------Problem 8
+//Repeat a given string (first argument) num times (second argument). Return an empty string if num is a negative number.
+
+function repeatStringNumTimes(str, num) {
+  var strArr = [];
+  for (var i = 0; i < num; i++ ){
+     strArr.push(str);
+  }
+
+  return strArr.join('');
 }
