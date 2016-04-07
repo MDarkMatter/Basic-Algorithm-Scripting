@@ -100,3 +100,26 @@ function findLongestWord(str) {
     }
     return Math.max.apply(null, pushArray);
 }
+
+
+//-------------------Problem 5
+// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+// For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+function titleCase(str) {
+   var sentence = str.split('');
+   var upper = [];
+
+   upper.push(sentence[0].toUpperCase());
+   for (i = 1; i < sentence.length; i++) {
+      if (sentence[i] === " ") {
+         upper.push(" ");
+         upper.push(sentence[i + 1].toUpperCase());
+         i++;
+      } else {
+         upper.push(sentence[i].toLowerCase());
+      }
+   }
+   var done = upper.join('');
+   return done;
+}
