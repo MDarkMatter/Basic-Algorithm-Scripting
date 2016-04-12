@@ -183,3 +183,32 @@ function truncateString(str, num) {
       return str;
    }
 }
+
+
+
+//--------------------Problem 10
+//Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+function chunkArrayInGroups(arr, size) {
+   var grouped = [];
+   for(var i = 0; i < arr.length; i++){
+      var arrSplice = arr.splice(0,(size));
+      grouped.push(arrSplice);
+      i = 0;
+   }
+
+   if (arr.length > 0){
+   grouped.push(arr);
+   }
+   return grouped;
+}
+
+
+//--------------------Problem 11
+// Return the remaining elements of an array after chopping off n elements from the head.
+// The head means the beginning of the array, or the zeroth index.
+
+function slasher(arr, howMany) {
+  var arrSplice =  arr.splice(0, (howMany));
+  return arr;
+}
