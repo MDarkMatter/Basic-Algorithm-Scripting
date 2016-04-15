@@ -236,3 +236,45 @@ function mutation(arr) {
    }
 
 }
+
+
+
+
+
+//-----------------------Problem 13
+//Remove all falsy values from an array.
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+function bouncer(arr) {
+  return arr.filter(
+    function (obj){
+      var check = Boolean(obj);
+       if (!check) {
+          return false;
+       } else{
+          return true;
+       }
+    }
+   );
+}
+
+//-------------------Problem 14
+// You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+//create global varibales for args and arrayToFilter
+
+var args = [];
+var arrayToFilter = [];
+
+function destroyer(arr) {
+   args = Array.prototype.slice.call(arguments);
+   arrayToFilter = args.splice(0,1);
+   return arrayToFilter[0].filter(filtration);
+}
+
+function filtration (obj) {
+    for (var i = 0; i < args.length; i++){
+      if (obj === args[i]){
+          return false;
+      }
+   }
+    return true;
+}
